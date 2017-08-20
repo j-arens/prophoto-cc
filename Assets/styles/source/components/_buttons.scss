@@ -1,0 +1,77 @@
+.post-editor__ {    
+    &btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(240, 240, 241);
+        border: 1px solid rgb(230, 230, 231);
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 2px;
+        transition: all .1s ease;
+        
+        &:hover {
+            background-color: rgb(220, 225, 230);
+            border-color: rgb(210, 210, 211)
+        }
+        
+        & .post-editor__svg-icon {
+            fill: currentColor;
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+
+    &btn-danger {
+        background-color: #ef5350;
+        color: #fff;
+
+        &:hover {
+            background-color: darken(#ef5350, 10%);
+        }
+    }
+
+    &btn-success {
+        background-color: #9ccc65;
+        color: #fff;
+
+        &:hover {
+            background-color: darken(#9ccc65, 10%);
+        }
+    }
+
+    &btn-small {
+        padding: 0.3rem 0.4rem;
+    }
+
+    &btn-fw {
+        display: block;
+        width: 100%;
+    }
+    
+    &btn-group {
+        display: flex;
+        
+        & .post-editor__btn {
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
+            
+            &:first-of-type {
+                border-top-left-radius: 2px;
+                border-bottom-left-radius: 2px;
+                border-left: 1px solid rgb(230, 230, 231);
+            }
+            
+            &:last-of-type {
+                border-top-right-radius: 2px;
+                border-bottom-right-radius: 2px;
+                border-right: 1px solid rgb(230, 230, 231);
+            }
+        }
+        
+        & .post-editor__btn + .post-editor__btn {
+            border-left: 1px solid rgb(230, 230, 231);
+        }
+    }
+}

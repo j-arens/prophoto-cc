@@ -1,0 +1,94 @@
+.post-editor__ {
+    &posts-table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    &col-name {
+        text-align: left;
+        text-transform: uppercase;
+        padding: 0.625rem;
+    }
+    
+    &col-name .post-editor__svg-icon {
+        display: inline-block;
+        vertical-align: -0.4rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: currentColor;
+    }
+
+    &col-icon .post-editor__svg-icon {
+        margin-left: 0.875em;
+    }
+
+    &post {
+        border-top: 1px solid rgb(238, 238, 239);
+        
+        &:nth-of-type(odd) {
+            background-color: rgb(251, 251, 252);
+        }
+        
+        &:hover {
+            background-color: rgb(250, 252, 255);
+        }
+    }
+    
+    &post-data {
+        padding: 0.625rem;
+        vertical-align: middle;
+    }
+    
+    &post-img {
+        display: block;
+        width: 3em;
+        height: 3em;
+        border-radius: 50%;
+        background-color: #eee;
+        background-image: url('/wp-content/plugins/prophoto-cc/Assets/svg/collection-item.svg');
+        background-size: 12px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        text-indent: -9999px;
+    }
+
+    &post-title,
+    &post-link {
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+
+    &post-title {
+        max-width: 9em;
+    }
+    
+    &post-link {
+        max-width: 10em;
+        text-decoration: none;
+        color: inherit;
+        font-size: 0.8em;
+    }
+    
+    &status-label {
+        font-size: 0.8em;
+        padding: 0.25rem;
+        background-color: #ccc;
+        border-radius: 2px;
+        color: #fff;
+    }
+
+    &status-success {
+        background-color: #9ccc65;
+    }
+    
+    &status-warning {
+        background-color: #ffca28;
+    }
+    
+    &status-danger {
+        background-color: #ef5350;
+    }
+}

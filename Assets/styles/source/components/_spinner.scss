@@ -1,0 +1,22 @@
+.post-editor__ {
+    &spinner {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10em;
+        height: 10em;
+    }
+
+    &spinner-circle {
+        fill: none;
+        stroke-width: 1;
+        stroke-linecap: round;
+        stroke-dasharray: 64;
+        stroke: #FFE581;
+        transform-origin: center center;
+        animation: 
+            spinnerSwing 1s linear infinite alternate,
+            spinnerRotate 2s linear infinite;
+    }
+}

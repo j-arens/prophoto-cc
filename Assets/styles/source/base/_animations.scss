@@ -1,0 +1,80 @@
+/**
+* SpinnerRotate
+*/
+@keyframes spinnerRotate {
+    from {
+      transform: rotate(0);
+    }
+    
+    to {
+      transform: rotate(1turn)
+    }
+  }
+  
+/**
+* SpinnerSwing
+*/
+@keyframes spinnerSwing {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: 64;
+    }
+}
+
+/**
+* FadeIn
+*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.post-editor__fadeIn {
+    animation: fadeIn .2s ease;
+}
+
+/**
+* FadeInScale
+*/
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.post-editor__fadeInScale {
+    animation: fadeInScale .2s ease;
+}
+
+/**
+* FadeInUp
+*/
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.post-editor__fadeInUp {
+    animation: fadeInUp .2s ease-in;
+}

@@ -1,0 +1,24 @@
+@import 'base/_index';
+@import 'components/_index';
+
+body.toplevel_page_post-editor {
+    #wpcontent {
+        height: calc(100vh - 32px);
+    }
+
+    #wpbody-content {
+        height: calc(100% - 65px);
+    }
+
+    #wpbody,
+    #post-editor {
+        height: 100%
+    }
+}
+
+.post-editor__ {
+    &root {
+        height: 100%;
+        font-size: 16px;
+    }
+}
