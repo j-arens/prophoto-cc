@@ -18,8 +18,11 @@
   "homepage": "https://bitbucket.org/j-arens/pro-photo-challange#readme",
   "dependencies": {
     "babel-runtime": "^6.25.0",
+    "immutable": "^3.8.2",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -41,6 +44,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.0",
+    "jest": "^21.2.1",
     "webpack": "^3.5.4",
     "webpack-stream": "^4.0.0"
   }
