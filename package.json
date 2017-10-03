@@ -4,6 +4,7 @@
   "description": "Code challenge for ProPhoto - display and edit posts.",
   "main": "index.js",
   "scripts": {
+    "flow": "flow",
     "build": "gulp build",
     "build-watch": "gulp build-watch",
     "start": "gulp"
@@ -26,11 +27,13 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "browser-sync": "^2.18.13",
     "eslint": "^4.4.1",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.2.1",
+    "flow-bin": "^0.56.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-cssnano": "^2.1.2",
