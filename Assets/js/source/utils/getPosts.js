@@ -1,55 +1,62 @@
-export function getPosts(quantity = 1, cb) {
-    if (!window.hasOwnProperty('wp') && typeof cb !== 'function') return;
+/**
+ * Get wp posts
+ *
+ * @param {[type]} number
+ * @return {[type]}
+ */
+export function getPosts(number: quantity = 1):promise {
+  if (!window.hasOwnProperty('wp')) return;
 
-    const postsCollection = new window.wp.api.collections.Posts();
-    const mediaCollection = new window.wp.api.collections.Media();
+  const postsCollection = new window.wp.api.collections.Posts();
 
-    const postQueryArgs = {
-        data: {
-            per_page: quantity,
-            status: ['publish', 'future', 'draft', 'pending', 'private']
-        }
+  const postQueryArgs = {
+    data: {
+      per_page: quantity,
+      status: ['publish', 'future', 'draft', 'pending', 'private'],
     }
+  }
 
-    const mediaQueryArgs = {
-        data: {
-            media_type: 'image',
-            include: [],
-            // parent: [] - might be a bug, this doesn't work if images have more than one parent
-        }
+  return postsCollection.fetch(postQueryArgs);
+}
+
+/**
+ * Get post featured images
+ *
+ * @param {[type]} posts
+ * @return {[type]}
+ */
+export function getAttachments(Posts: posts = []):promise {
+  if (!window.hasOwnProperty('wp')) return;
+
+  const mediaCollection = new window.wp.api.collections.Media();
+
+  const mediaQueryArgs = {
+    data: {
+      media_type: 'image',
+      include: posts,
     }
+  }
 
-    postsCollection.fetch(postQueryArgs)
-        .success(posts => {
-            if (posts.length) {
-                
-                // mediaQueryArgs.data.parent = posts.map(post => post.featured_media ? post.id : 0);
-                mediaQueryArgs.data.include = posts.map(post => post.featured_media);
-                
-                mediaCollection.fetch(mediaQueryArgs)
-                    .then(images => {
+  return mediaCollection.fetch(mediaQueryArgs);
+}
 
-                        // images.map(image => {
-                        //     posts.filter(post => {
-                        //         if (post.id === image.post) {
-                        //             post.media_sizes = image.media_details.sizes;
-                        //         }
-                        //     });
-                        // });
+/**
+ * Attach featured images to posts
+ *
+ * @param {[type]} Post
+ * @param {[type]} Media
+ * @return {[type]}
+ */
+export function attachFeaturedImg(Post: post, Media: media):Post {
+  if (!post.featured_media) {
+    return post;
+  }
 
-                        posts.forEach(post => {
-                            if (post.featured_media) {
-                                images.filter(image => image.id === post.featured_media ? post.media_sizes = image.media_details.sizes : false);
-                            }
-                        });
+  const attachments = media.filter(image => image.id === post.featured_media ? image.media_details.sizes : false);
 
-                        return cb(posts);
+  if (attachments) {
+    post.set('media_sizes', attachments);
+  }
 
-                    });
-            } else {
-                return cb([]);
-            }
-            
-        })
-        .fail(() => cb([]));
+  return post;
 }
