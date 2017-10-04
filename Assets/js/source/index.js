@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import App from './components/App';
+import getStore from './redux/index';
 import { getPosts } from './utils/getPosts';
 
 const initApp = (posts) => {
@@ -8,6 +10,13 @@ const initApp = (posts) => {
 
     if (root) {
         ReactDOM.render(<App posts={posts} />, root);
+
+        ReactDOM.render(
+            <Provider store={getStore()}>
+                <AppContainer />
+            </Provider>
+        );
+
     } else {
         console.error('unable to load posts');
     }
